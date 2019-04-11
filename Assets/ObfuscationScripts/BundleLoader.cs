@@ -17,7 +17,9 @@ public class BundleLoader : MonoBehaviour
 
     private AssetBundle LoadDecrypted(string name)
     {
-        var bytes = File.ReadAllBytes(@"D:\Documents\YouTube\Cheating\Assets\AssetBundles\" + name);
+        // Чтобы работала загрузка бандлов с таким путём - нужно будет скопировать их в папку с игрой
+        // На время разработки и отладки в Editor'e - можете прописать сюда полный путь к папке Assets/AssetBundles
+        var bytes = File.ReadAllBytes(@"./" + name);
         for (int i = 0; i < bytes.Length; i++)
         {
             bytes[i] = (byte) (bytes[i] ^ salt);
